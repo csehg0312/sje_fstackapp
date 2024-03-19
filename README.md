@@ -47,7 +47,7 @@ Az alkalmazás helyi futtatásához kövesse az alábbi lépéseket:
 
 ## Hozzájárulók
 
-- Cseh Gábor ("https://github.com/csehg0312/")["https://github.com/csehg0312/"]
+- Cseh Gábor [https://github.com/csehg0312/](csehg0312)
 
 ## Köszönetnyilvánítás
 
