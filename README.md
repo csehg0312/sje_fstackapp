@@ -48,8 +48,3 @@ Az alkalmazás helyi futtatásához kövesse az alábbi lépéseket:
 ## Hozzájárulók
 
 - Cseh Gábor [ Github profil ](https://github.com/csehg0312/)
-
-## Köszönetnyilvánítás
-
-- A J. Selye Egyetemnek, hogy lehetőséget adott a projekt megvalósítására a kurzus keretében.
-- A mentoroknak és oktatóknak, akik iránymutatást és támogatást nyújtottak a fejlesztési folyamat során.
