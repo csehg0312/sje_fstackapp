@@ -23,7 +23,7 @@ Ez a projekt egy teljeskörű webalkalmazást mutat be, amely MongoDB-t használ
 
 - **Backend**:
   - Node.js
-  - Express.js
+  - Axios
 
 - **Adatbázis**:
   - MongoDB
