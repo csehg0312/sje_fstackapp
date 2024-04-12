@@ -1,4 +1,5 @@
 <script setup>
+  import Axios from 'axios'
   import AnimalsComponent from './components/AnimalsComponent.vue'
   import EnclosuresComponent from './components/EnclosuresComponent.vue'
   import FeedingsComponent from './components/FeedingsComponent.vue'
@@ -6,11 +7,35 @@
   import VeterinarsComponent from './components/VeterinarsComponent.vue'
   import VisitorsComponent from './components/VisitorsComponent.vue'
   import ZookeepersComponent from './components/ZookeepersComponent.vue'
-  import items from './data/idea.js'
+  import { onMounted, ref } from 'vue'
 
-  import { defineProps } from 'vue'
-  // console.log(items.items)
-  defineProps({
+  const items = { 
+    animals: ref([]),
+    enclosures: ref([]) || [],
+    feedings:ref([]) || [],
+    medical_records: ref([]) || [],
+    veterinars: ref([]) || [],
+    visitors: ref([]) || [],
+    zookeepers: ref([]) || []
+  }
+
+  const axiosInstance = Axios.create({
+    baseURL: 'http://localhost:3001/AnimalRoutes' 
+  })
+
+  onMounted(async () => {
+    try {
+      const response = await axiosInstance.get('/getAnimals')
+      items.animals.value = response.data
+      // console.log(items.animals)
+      // items.animals.value = response.data
+    } catch (error) {
+      console.log('hiba')
+      console.error(error)
+    }
+  })
+  
+  const props = defineProps({
     animals: {
       type: Array,
       required: true
@@ -43,32 +68,15 @@
 
 </script>
 
-<!-- <script>
-
-  export default {
-  "item": {
-    "animals": items.animals,
-    "enclosures": items.enclosures,
-    "zookeepers": items.zookeepers,
-    "visitors": items.visitors,
-    "feedings": items.feedings,
-    "medical_records": items.medical_records,
-    "veterinars": items.veterinars
-
-  }
-} -->
-<!-- 
-</script> -->
-
 <template>
   <div>
-    <AnimalsComponent :animals="items.items.animals" />
-    <EnclosuresComponent :enclosures="items.items.enclosures" />
-    <FeedingsComponent :feedings="items.items.feedings" />
-    <MedicalRecordsComponent :medical_records="items.items.medical_records" />
-    <VeterinarsComponent :veterinars="items.items.veterinars" />
-    <VisitorsComponent :visitors="items.items.visitors" />
-    <ZookeepersComponent :zookepers="items.items.zookeepers" />
+    <AnimalsComponent :animals="items.animals" />
+    <EnclosuresComponent :enclosures="items.enclosures" />
+    <FeedingsComponent :feedings="items.feedings" />
+    <MedicalRecordsComponent :medical_records="items.medical_records" />
+    <VeterinarsComponent :veterinars="items.veterinars" />
+    <VisitorsComponent :visitors="items.visitors" />
+    <ZookeepersComponent :zookepers="items.zookeepers" />
   </div>
 </template>
 

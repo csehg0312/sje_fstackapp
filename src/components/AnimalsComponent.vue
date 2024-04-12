@@ -3,14 +3,17 @@
       <h2>Animals</h2>
     </div>
     <div>
-        <table v-for="animal in this.animals" :key="animal.id">
-        <tr>
-            <td>Name: <br> {{ animal.species }}</td>
-            <td>Nickname: <br> {{ animal.name }}</td>
-            <td>Gender: <br> {{ animal.gender }}</td>
-            <td>Age: <br> {{ animal.age }}</td>
+        <!-- <table>
+            <tr>
+            <td>Name: <br> {{ animal.Species }}</td>
+            <td>Nickname: <br> {{ animal.Name }}</td>
+            <td>Gender: <br> {{ animal.Gender }}</td>
+            <td>Age: <br> {{ animal.Age }}</td>
         </tr>
-      </table>
+      </table> -->
+    </div>
+    <div>
+        <button @click="printData">Print</button>
     </div>
 </template>
 
@@ -25,7 +28,7 @@ export default {
     },
     methods: {
         printData() {
-            console.table(this.animals)
+            console.log(this.animals.value[0].Name)
         }
     }
 }
