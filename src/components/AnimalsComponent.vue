@@ -3,14 +3,14 @@
       <h2>Animals</h2>
     </div>
     <div>
-        <!-- <table>
-            <tr>
-            <td>Name: <br> {{ animal.Species }}</td>
-            <td>Nickname: <br> {{ animal.Name }}</td>
-            <td>Gender: <br> {{ animal.Gender }}</td>
-            <td>Age: <br> {{ animal.Age }}</td>
-        </tr>
-      </table> -->
+        <table v-for="object in this.animals.value">
+            
+            <tr>Species: {{ object.Species }}</tr>
+           <tr>Name: {{ object.Name }}</tr>
+           <tr>Age: {{ object.Age }}</tr>
+           <tr>Gender: {{ object.Gender }}</tr>
+
+        </table>
     </div>
     <div>
         <button @click="printData">Print</button>
@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import { dotmap } from 'dot-prop-immutable'
 export default {
     name: 'AnimalsComponent',
     props: {
@@ -29,7 +30,10 @@ export default {
     methods: {
         printData() {
             console.log(this.animals.value[0].Name)
-        }
+        },
+        getAnimalProp(animal, proerty){
+            return dotmap.get(animal, proerty)
+        },
     }
 }
 </script>

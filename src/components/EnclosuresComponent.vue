@@ -2,20 +2,14 @@
 <template>
     <div>
       <h2>Enclosures</h2>
-      <table>
-        <tr>
-            <td>Enclosure name: </td>
-            <td>Size: </td>
-            <td>Habitat: </td>
-        </tr>
-        <!-- <div v-for="enclosure in this.enclosures" :key="enclosure.enclosure_id">
-            <tr>
-                <td>{{ enclosure.enclosure_name }}</td>
-                <td>{{ enclosure.size }}</td>
-                <td>{{ enclosure.habitat_type }}</td>
-            </tr>
-        </div> -->
-    </table>
+      <table v-for="object in this.enclosures.value">
+            
+            <tr>Species: {{ object.Species }}</tr>
+           <tr>Name: {{ object.Name }}</tr>
+           <tr>Age: {{ object.Age }}</tr>
+           <tr>Gender: {{ object.Gender }}</tr>
+
+        </table>
     </div>
 </template>
 

@@ -20,14 +20,14 @@
   }
 
   const axiosInstance = Axios.create({
-    baseURL: 'http://localhost:3001/AnimalRoutes' 
+    baseURL: 'http://localhost:3001' 
   })
 
   onMounted(async () => {
     try {
-      const response = await axiosInstance.get('/getAnimals')
+      const response = await axiosInstance.get('AnimalRoutes/getAnimals')
       items.animals.value = response.data
-      // console.log(items.animals)
+      console.log(items.animals.value)
       // items.animals.value = response.data
     } catch (error) {
       console.log('hiba')
