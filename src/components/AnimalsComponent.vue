@@ -23,7 +23,7 @@ export default {
     name: 'AnimalsComponent',
     props: {
         animals: {
-            type: Array,
+            type: Object,
             required:true
         }
     },
