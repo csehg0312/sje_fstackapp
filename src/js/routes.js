@@ -34,9 +34,9 @@ const getRoutes = {
 
 
 const adderRoutes = {
-    addAnimals: (newData) => {
+    addAnimals: (Name,Age,species,gender) => {
         console.log('Fetching animals...')
-        return api.get(`/AnimalRoutes/addAnimal?${newData}`)
+        return api.post('/AnimalRoutes/addAnimal', {newData})
     },
     addEnclosures: () => {
         console.log('Fetching enclosures...')

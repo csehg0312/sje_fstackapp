@@ -2,14 +2,37 @@
 <template>
     <div>
       <h2>Enclosures</h2>
-      <table v-for="object in this.enclosures.value">
-            
-            <tr>Species: {{ object.Species }}</tr>
-           <tr>Name: {{ object.Name }}</tr>
-           <tr>Age: {{ object.Age }}</tr>
-           <tr>Gender: {{ object.Gender }}</tr>
-
-        </table>
+      <table>
+                <tr>
+                    <td>
+                        <b>
+                            Ketrec megnevezése:
+                        </b>
+                    </td>
+                    <td>
+                        <b>
+                            Mérete:
+                        </b>
+                    </td>
+                    <td>
+                        <b>
+                            Környezeti hőmérséklete:
+                        </b>
+                    </td>
+                    <td>
+                        <b>
+                            Élőhely típusa:
+                        </b>
+                    </td>
+                </tr>
+                <tr v-for="object in this.enclosures.value">
+                    <td>{{ object.EnclosureName }} </td>
+                    <td>{{ object.Size }} </td>
+                    <td>{{ object.TemperatureInCelsius }} °C</td>
+                    <td>{{ object.HabitatType }} </td>
+                </tr>
+                
+            </table>
     </div>
 </template>
 
@@ -18,7 +41,7 @@ export default {
     name: 'EnclosuresComponent',
     props: {
             enclosures: {
-                type: Array,
+                type: Object,
                 required:true
             }
         },
